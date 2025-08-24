@@ -1,15 +1,6 @@
-import express, {json} from 'express'
+import createApp from "./app";
 
-const app = express()
-
-app.use(json())
-
-app.get('/', (req, res) => {
-  res.status(200).json({
-    jogado: "Lima",
-    numero: 10
-  })
-})
+const app = createApp()
 
 const PORTA = process.env.PORT;
 
