@@ -4,11 +4,19 @@ const database: PlayerModel[] = [
   {
     id: 1,
     name: "Lima",
-  },
-  {
-    id: 2,
-    name: "Will",
-  },
+    club: "Ceara",
+    nationality: "Brazil",
+    position: "10",
+    statistics: {
+      Overall: 9,
+      Pace: 10,
+      Shooting: 15,
+      Passing: 60,
+      Dribbling: 100,
+      Defending: 50,
+      Physical: 90,
+    }
+  }
 ];
 
 export const findAllPlayers = async (): Promise<PlayerModel[]> => {
@@ -18,5 +26,9 @@ export const findAllPlayers = async (): Promise<PlayerModel[]> => {
 export const findPlayerById = async (
   id: number
 ): Promise<PlayerModel | undefined> => {
-  return database.find((p) => (p.id = id));
+  return database.find((p) => (p.id === id));
+};
+
+export const addPlayers = async (player: PlayerModel) => {
+  database.push(player);
 };
